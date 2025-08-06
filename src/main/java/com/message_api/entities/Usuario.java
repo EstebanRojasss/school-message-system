@@ -10,10 +10,10 @@ public class Usuario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
     private String username;
 
-    public Usuario(Integer id, String username) {
+    public Usuario(Long id, String username) {
         this.id = id;
         this.username = username;
     }
@@ -21,7 +21,7 @@ public class Usuario {
     public Usuario() {
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
