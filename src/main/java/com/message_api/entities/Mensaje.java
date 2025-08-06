@@ -8,11 +8,9 @@ public class Mensaje {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @ManyToOne
     @JoinColumn(name = "remitente_id")
     private Usuario remitente;
 
-    @ManyToOne
     @JoinColumn(name = "destinatario_id")
     private Usuario destinatario;
 
