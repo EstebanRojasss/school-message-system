@@ -1,6 +1,7 @@
 package com.message_api.controller;
 
 import com.message_api.dto.MessageRequestDto;
+import com.message_api.entities.Mensaje;
 import com.message_api.service.MessageService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,10 +19,16 @@ public class MessageController {
         this.messageService = messageService;
     }
 
-    @PostMapping
-    public ResponseEntity<Void> sendMessage(@RequestBody MessageRequestDto message){
-        messageService.enviarMensaje(message.remitente(), message.destinatario(), message.contenido());
-        return ResponseEntity.ok().build();
-    }
+   @PostMapping
+   public ResponseEntity<String> sendMessage(@RequestBody Mensaje mensaje){
+       System.out.println("Remitente: " + mensaje.getRemitente());
+       System.out.println("Destinatario: " + mensaje.getDestinatario());
+       System.out.println("Contenido: "+  mensaje.getContenido());
+
+       messageService.sendMessage(mensaje.getRemitente(), mensaje.getDestinatario(), mensaje.getContenido());
+
+       return ResponseEntity.ok().build();
+
+   }
 
 }
