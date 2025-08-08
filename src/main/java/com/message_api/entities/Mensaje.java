@@ -8,15 +8,12 @@ public class Mensaje {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @JoinColumn(name = "remitente_id")
-    private Usuario remitente;
-
-    @JoinColumn(name = "destinatario_id")
-    private Usuario destinatario;
+    private String remitente;
+    private String destinatario;
 
     private String contenido;
 
-    public Mensaje(Integer id, Usuario remitente, Usuario destinatario, String contenido) {
+    public Mensaje(Integer id, String remitente, String destinatario, String contenido) {
         this.id = id;
         this.remitente = remitente;
         this.destinatario = destinatario;
@@ -30,19 +27,19 @@ public class Mensaje {
         return id;
     }
 
-    public Usuario getRemitente() {
+    public String getRemitente() {
         return remitente;
     }
 
-    public void setRemitente(Usuario remitente) {
+    public void setRemitente(String remitente) {
         this.remitente = remitente;
     }
 
-    public Usuario getDestinatario() {
+    public String getDestinatario() {
         return destinatario;
     }
 
-    public void setDestinatario(Usuario destinatario) {
+    public void setDestinatario(String destinatario) {
         this.destinatario = destinatario;
     }
 
@@ -53,5 +50,4 @@ public class Mensaje {
     public void setContenido(String contenido) {
         this.contenido = contenido;
     }
-
 }
